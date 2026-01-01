@@ -1,0 +1,287 @@
+/* Importar la fuente y resetear estilos */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #0d0a21; /* Fondo oscuro */
+    color: white;
+    min-height: 100vh;
+}
+
+/* --- Barra de Navegación (Reutilizada del diseño principal) --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(13, 10, 33, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo a img {
+    height: 40px;
+}
+
+.nav-links a {
+    color: #c9c9ff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #667eea;
+}
+
+.btn-play-now {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-play-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* --- Encabezado de la Página de Segmentos --- */
+.content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 5%;
+}
+
+.segments-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.header-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #fff 0%, #a8a8ff 100%);
+    /* Compatibilidad de gradiente de texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brand-highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Compatibilidad de gradiente de texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 300;
+}
+
+/* --- Lista de Segmentos (Diseño Alterno) --- */
+.segments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.segment-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.segment-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilo para las imágenes a la derecha (segment-item.right) */
+.segment-item.right {
+    direction: rtl; /* Invertir el orden para la imagen a la derecha */
+}
+
+/* El contenido info debe ignorar la dirección invertida */
+.segment-info {
+    direction: ltr; 
+    text-align: left;
+}
+
+/* 🔄 CONTENEDOR DE IMAGEN: Altura fija y centrado del contenido */
+.segment-image-container {
+    padding: 20px;
+    border-radius: 15px;
+    background: #1a1738;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    
+    /* Reglas para dimensionar y centrar el contenido */
+    height: 350px; /* Altura fija para uniformidad visual */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+/* 🖼️ IMAGEN DENTRO DEL CONTENEDOR: Aseguramos que se ajuste y mantenga proporción */
+.segment-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta la imagen sin cortarla */
+    display: block;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4)); 
+}
+
+.segment-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #302b63; /* Color oscuro como fondo sutil */
+    opacity: 0.6;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.segment-info h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.segment-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Footer --- */
+.landing-footer {
+    padding: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 40px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .header-title {
+        font-size: 2.5rem;
+    }
+    .segment-item {
+        /* Pasa a una sola columna */
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+        direction: ltr !important; /* Forzar orden LTR para todos */
+    }
+
+    .segment-info {
+        text-align: center;
+    }
+
+    .segment-number {
+        text-align: center;
+    }
+    
+    .segment-image-container {
+        /* Ajuste de tamaño en tablet */
+        margin: 0 auto;
+        max-width: 400px; 
+        height: 300px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .segment-image-container {
+        /* Ajuste de tamaño en móvil pequeño */
+        height: 250px;
+    }
+    .header-title {
+        font-size: 2rem;
+    }
+    .segment-info h2 {
+        font-size: 1.8rem;
+    }
+    .segment-info p {
+        font-size: 1rem;
+    }
+}
+/* --- ESTILOS PARA LOS ICONOS SVG --- */
+
+.title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre texto e icono */
+    margin-bottom: 15px;
+}
+
+.svg-icon {
+    display: flex;
+    align-items: center;
+}
+
+/* Configuramos el tamaño y color del SVG */
+.svg-icon svg {
+    width: 32px;
+    height: 32px;
+    /* Usamos el color de tu marca */
+    stroke: #a8a8ff; 
+    stroke-width: 2.5;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.4));
+}
+
+/* Efecto al pasar el mouse por encima de la tarjeta */
+.segment-item:hover .svg-icon svg {
+    stroke: #fff; /* Se vuelve blanco */
+    transform: scale(1.1) rotate(5deg); /* Se agranda un poquito */
+    filter: drop-shadow(0 0 10px rgba(168, 168, 255, 0.8));
+}
+
+/* Ajuste Responsive para móviles */
+@media (max-width: 768px) {
+    .title-with-icon {
+        justify-content: center; /* Centrar icono y texto en móvil */
+    }
+}

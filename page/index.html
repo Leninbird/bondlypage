@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bondly Beta | Conecta con Estudiantes de la UCV</title>
+    <meta name="description" content="Bondly es la red social universitaria en desarrollo donde puedes conectar con otros estudiantes de la UCV.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logos.png" type="image/png">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-logo">
+            <img src="images/ucv.jpeg" alt="Bondly Logo" class="nav-logo">
+        </div>
+        
+        <nav class="nav-links" id="navLinks"> 
+            <a href="#anuncios">Anuncios</a>
+            <a href="#fundadores">Fundadores</a>
+            <a href="#features">Segmentos</a>
+            <a href="segmentos.html">Contenido</a>
+        </nav>
+        
+        <button class="menu-toggle" id="menuToggle">&#9776;</button> 
+
+        <a href="https://bondly-ucv.pages.dev/" class="btn-play-now" id="btnComenzarNav">
+            Únete a la BETA
+        </a>
+    </header>
+
+    <main class="content-wrapper" id="app">
+        
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1 class="hero-title">Bondly BETA: <span class="brand-highlight">El intento de red social en proceso de la UCV</span></h1>
+                <h2 class="hero-subtitle">Conecta con Estudiantes de la Universidad César Vallejo</h2>
+                
+                <div class="key-features">
+                    <div class="key-feature-item"><span>🚀</span> Versión BETA Activa</div>
+                    <div class="key-feature-item"><span>🌐</span> Conexión con alumnos UCV</div>
+                    <div class="key-feature-item"><span>🤝</span> Vínculos Académicos y Sociales</div>
+                    <div class="key-feature-item"><span>🔒</span> Exclusivo para vallejianos</div>
+                </div>
+            </div>
+            
+            <div class="logo-hero-container">
+                <img src="images/logo bondly.png" alt="Bondly Logo" class="main-logo">
+            </div>
+        </section>
+
+        <section id="anuncios" class="news-section">
+            <h3>📢 Últimos Anuncios de la Corporación</h3>
+            <div class="news-grid">
+                <div class="news-item">
+                    <span class="news-date">01 ENE 2026</span>
+                    <p class="news-title">Bondly se muda a Cloudflare como nueva infraestructura de hosting</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">31 DEC 2025</span>
+                    <p class="news-title">Versión 1.82, con migración total a auth supabase, mejoras en interfaces y más</p>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">22 DEC 2025</span>
+                    <p class="news-title">Lanzamiento de la versión 1.70, incluye el app para moviles en proceso de desarrollo</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="fundadores" class="founders-section">
+            <h3>👥 Conoce a los cerebros</h3>
+            <p class="section-subtitle">El equipo detrás de Bondly BETA.</p>
+            
+            <div class="founders-grid">
+                <a 
+                    v-for="(persona, index) in fundadores" 
+                    :key="index"
+                    :href="persona.link" 
+                    target="_blank" 
+                    class="founder-card"
+                >
+                    <img :src="persona.foto" :alt="'Foto de ' + persona.nombre" class="founder-photo">
+                    <h4>{{ persona.nombre }}</h4>
+                    <p class="founder-role">{{ persona.rol }}</p>
+                    <span class="founder-link">Ver perfil</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="features" class="features-section">
+            <h3>Explora los Segmentos de Bondly</h3>
+            
+            <div class="features-grid">
+                <div 
+                    v-for="(item, index) in segmentos" 
+                    :key="index" 
+                    class="feature-card"
+                >
+                    <div class="feature-icon">{{ item.icono }}</div>
+                    <h4>{{ item.titulo }}</h4>
+                    <p>{{ item.descripcion }}</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="landing-footer">
+        <p>©LeninBirdCorp 2026 • Versión 1.82 • Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="js/datos.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
