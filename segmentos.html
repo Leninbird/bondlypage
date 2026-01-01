@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacios | Explora los espacios de Bondly BETA</title>
+    
+    <link rel="stylesheet" href="css/segmentos.css">
+    <link rel="icon" href="images/logos.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-logo">
+            <a href="index.html">
+                <img src="images/ucv.jpeg" alt="Logo UCV" class="nav-logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html#anuncios">Anuncios</a>
+            <a href="index.html#fundadores">Fundadores</a>
+            <a href="index.html#features">Segmentos</a>
+            <a href="segmentos.html" class="active">Contenido</a> 
+        </nav>
+        <a href="https://bondly-ucv.pages.dev/" class="btn-play-now">
+            Comenzar BETA
+        </a>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="segments-header">
+            <h1 class="header-title">Explora los Segmentos de <span class="brand-highlight">Bondly BETA</span></h1>
+            <p class="header-subtitle">Nueve formas únicas de conectar y hacer *networking* dentro de tu universidad.</p>
+        </section>
+
+        <section class="segments-list">
+            
+            <div 
+                v-for="(item, index) in segmentos" 
+                :key="index"
+                class="segment-item"
+                :class="index % 2 === 0 ? 'left' : 'right'"
+            >
+                <div class="segment-image-container">
+                    <img :src="item.imagen" :alt="item.titulo" class="segment-image">
+                </div>
+                <div class="segment-info">
+                    <span class="segment-number">{{ item.numero }}</span>
+    
+                        <div class="title-with-icon">
+                          <h2>{{ item.titulo }}</h2>
+                            <div class="svg-icon" v-html="item.iconoSVG"></div>
+                            </div>
+
+                             <p>{{ item.descripcion }}</p>
+                        </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>©LeninBirdCorp 2025 • Versión 1.82 • Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/segmentos.js"></script>
+</body>
+</html>
